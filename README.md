@@ -22,7 +22,7 @@ Your progress is saved automatically in `%APPDATA%\ChestCounter`.
 
 ## Controls
 
-| Action | Control |
+| Action | Default control |
 | --- | --- |
 | Add a chest | Mouse side button (upper) |
 | Remove a chest (undo) | Mouse side button (lower) |
@@ -33,7 +33,11 @@ Your progress is saved automatically in `%APPDATA%\ChestCounter`.
 
 The overlay starts **locked**, so mouse clicks go straight through it to the game. Unlock it to drag it somewhere else or to right-click it for the menu, then lock it again.
 
-If your mouse's upper and lower side buttons are the other way round, swap `MOUSE_ADD_BUTTON` and `MOUSE_UNDO_BUTTON` at the top of `chest_counter.py`. If your mouse software remaps those buttons to keyboard keys or macros, set them back to the default Back and Forward actions.
+**Changing the keys:** unlock the overlay, right-click it, and choose **Keybinds...**. Click **Change** next to an action, then press the key you want or one of your mouse side buttons. Press `Esc` to cancel, or **Reset to defaults** to go back. Keys can be combined with `Ctrl` or `Shift`.
+
+Keys you bind are taken over while the app runs, so they won't reach the game or other programs. Avoid keys you use in Fortnite. If a key is already used by another program, the app tells you and you can pick a different one.
+
+If your mouse software remaps the side buttons to keyboard keys or macros, set them back to the default Back and Forward actions, or bind the keys it sends instead.
 
 ## Friends leaderboard
 
