@@ -12,9 +12,14 @@
 const SECRET = 'CHANGE-ME';
 const MAX_PLAYERS = 100;
 
+// The name shown at the top of the leaderboard, e.g. 'Chapter 7 Season 4'.
+// Leave '' to show a plain "Season 1", "Season 2"... counter instead.
+// When a new Fortnite season starts: change this, run newSeason(), then publish a new version.
+const SEASON_NAME = 'Chapter 7 Season 4';
+
 // Optional: link to the app download (for example your GitHub release page).
 // When set, the leaderboard page shows a "Download the app" button. Leave '' for no button.
-const DOWNLOAD_URL = '';
+const DOWNLOAD_URL = 'https://github.com/iiiAdi/Fortnite-Chest-Counter/releases/latest';
 
 // Each friend's app sends its counts here.
 function doPost(e) {
@@ -95,7 +100,7 @@ function getData(key) {
   players.sort(function (a, b) {
     return (b.season - a.season) || String(a.name).localeCompare(String(b.name));
   });
-  return { seasonId: Number(props.getProperty('seasonId')) || 1, players: players, now: Date.now() };
+  return { seasonId: Number(props.getProperty('seasonId')) || 1, seasonName: SEASON_NAME, players: players, now: Date.now() };
 }
 
 // Run this from the script editor to start a new season. Wipes everyone's season total.
@@ -162,7 +167,7 @@ function page_(key) {
   'var h=Math.round(m/60);if(h<48)return h+" h ago";return Math.round(h/24)+" days ago";}' +
   'function mk(tag,cls,text){var el=document.createElement(tag);el.className=cls;el.textContent=text;return el;}' +
   'function render(){if(!last)return;' +
-  'document.getElementById("season").textContent="Season "+last.seasonId;' +
+  'document.getElementById("season").textContent=last.seasonName||("Season "+last.seasonId);' +
   'var box=document.getElementById("rows");box.textContent="";' +
   'if(!last.players.length){document.getElementById("msg").textContent="No players yet";return;}' +
   'document.getElementById("msg").textContent="";' +
